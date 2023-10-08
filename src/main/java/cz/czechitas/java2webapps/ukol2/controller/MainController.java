@@ -22,7 +22,7 @@ public class MainController {
     @GetMapping("/")
 
 
-    private static List<String> readAllLines(String resource) throws IOException{
+    /*private static List<String> readAllLines(String resource) throws IOException{
         //Soubory z resources se získávají pomocí classloaderu. Nejprve musíme získat aktuální classloader.
         ClassLoader classLoader=Thread.currentThread().getContextClassLoader();
 
@@ -42,14 +42,22 @@ public class MainController {
         ModelAndView result = new ModelAndView("index");
         result.addObject("templates.citaty.txt");
         return result;
-    }
-
-    /*public ModelAndView zmenCitat() {
-        List<String> seznamTextu=List.of("řetězec 1","řetězec 2","další řetězec","ještě jiný řetězec");
-        int nahodneCislo = random.nextInt(4)+1;
-        ModelAndView result = new ModelAndView("index");
-        result.addObject("seznamTextu", nahodneCislo);
-        return result;
     }*/
+
+    public ModelAndView zmenCitat() {
+        List<String> seznamTextu=List.of("The Classic Mystery Game where you are the detective, the victim, and the murderer.",
+                "A user interface is like a joke. If you have to explain it, it's not that good.",
+                "To replace programmers with robots, clients will have to accurately describe what they want. We're safe.",
+                "I have a joke on programming but it only works on my computer.",
+                "99 little bugs in the code, 99 bugs in the code. Take one down, patch it around. 127 little bugs in the code…",
+                "When I wrote this code, only God & I understood what it did. Now… Only God knows.",
+                "Programmer (noun.): A machine that turns coffee into code.",
+                "Real programmers count from 0.");
+        int nahodneCislo = random.nextInt(seznamTextu.size());
+        String nahodnyText = seznamTextu.get(nahodneCislo);
+        ModelAndView result = new ModelAndView("index");
+        result.addObject("nahodnyText", nahodnyText);
+        return result;
+    }
 
 }

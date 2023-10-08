@@ -10,6 +10,6 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body style="background-image: url(https://source.unsplash.com/RFHFV7lVQBY/1600x900);">
-<blockquote><strong>Debugging</strong> /de·bugh·ing/ <em>verb</em><br/> ${"citaty.txt"} </blockquote>
+<blockquote> ${nahodnyText} </blockquote>
 </body>
 </html>
