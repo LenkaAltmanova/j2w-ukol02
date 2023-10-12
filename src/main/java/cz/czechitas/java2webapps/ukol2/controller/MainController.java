@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static java.lang.String.format;
+
 
 @Controller
 
@@ -21,28 +23,6 @@ public class MainController {
     private final Random random = new Random();
     @GetMapping("/")
 
-
-    /*private static List<String> readAllLines(String resource) throws IOException{
-        //Soubory z resources se získávají pomocí classloaderu. Nejprve musíme získat aktuální classloader.
-        ClassLoader classLoader=Thread.currentThread().getContextClassLoader();
-
-        //Pomocí metody getResourceAsStream() získáme z classloaderu InpuStream, který čte z příslušného souboru.
-        //Následně InputStream převedeme na BufferedRead, který čte text v kódování UTF-8
-        try(InputStream inputStream=classLoader.getResourceAsStream("templates.citaty.txt");
-            BufferedReader reader=new BufferedReader(new InputStreamReader(inputStream,StandardCharsets.UTF_8))){
-
-            //Metoda lines() vrací stream řádků ze souboru. Pomocí kolektoru převedeme Stream<String> na List<String>.
-            return reader
-                    .lines()
-                    .collect(Collectors.toList());
-        }
-    }
-
-    public ModelAndView zmenCitat() {
-        ModelAndView result = new ModelAndView("index");
-        result.addObject("templates.citaty.txt");
-        return result;
-    }*/
 
     public ModelAndView zmenCitat() {
         List<String> seznamTextu=List.of("The Classic Mystery Game where you are the detective, the victim, and the murderer.",
@@ -55,8 +35,12 @@ public class MainController {
                 "Real programmers count from 0.");
         int nahodneCislo = random.nextInt(seznamTextu.size());
         String nahodnyText = seznamTextu.get(nahodneCislo);
+        String obrazek = String.format("/images/krajina%d.jpg", nahodneCislo);
+
+
         ModelAndView result = new ModelAndView("index");
         result.addObject("nahodnyText", nahodnyText);
+        result.addObject("obrazek", obrazek);
         return result;
     }
 
