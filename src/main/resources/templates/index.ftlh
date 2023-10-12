@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
-<body style="background-image: url(https://source.unsplash.com/RFHFV7lVQBY/1600x900);">
+
+<body style="background-image: src=/images/krajina1.jpg" >
 <blockquote> ${nahodnyText} </blockquote>
 </body>
 </html>
