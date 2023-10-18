@@ -21,11 +21,11 @@ import static java.lang.String.format;
 
 public class MainController {
     private final Random random = new Random();
+
     @GetMapping("/")
 
-
     public ModelAndView zmenCitat() {
-        List<String> seznamTextu=List.of("The Classic Mystery Game where you are the detective, the victim, and the murderer.",
+        List<String> seznamTextu = List.of("The Classic Mystery Game where you are the detective, the victim, and the murderer.",
                 "A user interface is like a joke. If you have to explain it, it's not that good.",
                 "To replace programmers with robots, clients will have to accurately describe what they want. We're safe.",
                 "I have a joke on programming but it only works on my computer.",
@@ -35,8 +35,8 @@ public class MainController {
                 "Real programmers count from 0.");
         int nahodneCislo = random.nextInt(seznamTextu.size());
         String nahodnyText = seznamTextu.get(nahodneCislo);
-        String obrazek = String.format("/images/krajina%d.jpg", nahodneCislo);
-
+        int nahodneCisloProObrazek = random.nextInt(5)+1;
+        String obrazek = String.format("/images/krajina%d.jpg", nahodneCisloProObrazek);
 
         ModelAndView result = new ModelAndView("index");
         result.addObject("nahodnyText", nahodnyText);
